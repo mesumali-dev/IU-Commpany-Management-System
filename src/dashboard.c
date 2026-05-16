@@ -68,7 +68,8 @@ void show_accountant_dashboard() {
         printf("2. Calculate Salary\n");
         printf("3. View Salary Records\n");
         printf("4. Search Transactions\n");
-        printf("5. Logout\n");
+        printf("5. View All Transactions\n");
+        printf("6. Logout\n");
         printf("Enter choice: ");
 
         if (scanf("%d", &choice) != 1) {
@@ -92,12 +93,15 @@ void show_accountant_dashboard() {
                 search_transaction(); 
                 break;
             case 5: 
+                view_all_transactions(); 
+                break;
+            case 6: 
                 logout_user(); 
                 break;
             default: 
                 printf("Invalid Option!\n");
         }
-    } while (choice != 5);
+    } while (choice != 6);
 }
 
 void show_employee_dashboard() {

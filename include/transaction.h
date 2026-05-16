@@ -10,5 +10,6 @@ typedef struct {
 
 void add_transaction();
 void search_transaction();
+void view_all_transactions();
 
 #endif

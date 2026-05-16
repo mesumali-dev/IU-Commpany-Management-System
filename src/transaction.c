@@ -79,3 +79,20 @@ void search_transaction() {
 
     fclose(fp);
 }
+
+void view_all_transactions() {
+    FILE *fp;
+    fp = fopen("data/transactions.csv", "r");
+    if (fp == NULL) {
+        printf("No transactions found!\n");
+        return;
+    }
+
+    Transaction t;
+    printf("\n--- All Transactions ---\n");
+    while (fscanf(fp, "%d,%[^,],%f,%[^\n]\n", &t.id, t.date, &t.amount, t.description) != EOF) {
+        printf("ID: %d | Date: %s | Amount: %.2f | Desc: %s\n", t.id, t.date, t.amount, t.description);
+    }
+
+    fclose(fp);
+}
