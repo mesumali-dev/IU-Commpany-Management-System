@@ -6,6 +6,7 @@
 #include "../include/attendance.h"
 #include "../include/salary.h"
 #include "../include/transaction.h"
+#include "../include/reports.h"
 
 void show_admin_dashboard() {
     int choice;
@@ -40,7 +41,7 @@ void show_admin_dashboard() {
                 search_employee(); 
                 break;
             case 4: 
-                printf("View Reports section coming soon!\n"); 
+                view_reports(); 
                 break;
             case 5: 
                 view_attendance(); 
