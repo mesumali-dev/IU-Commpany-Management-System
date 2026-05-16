@@ -1,10 +1,8 @@
 #include "../include/task.h"
 #include <stdio.h>
 #include <string.h>
+#include "../include/utils.h"
 
-void clean_task_input(char *str) {
-    str[strcspn(str, "\n")] = 0;
-}
 
 void assign_task() {
     FILE *fp;
@@ -31,15 +29,15 @@ void assign_task() {
 
     printf("Enter task name: ");
     fgets(t.task_name, sizeof(t.task_name), stdin);
-    clean_task_input(t.task_name);
+    clean_input(t.task_name);
 
     printf("Enter username of employee: ");
     fgets(t.assigned_to, sizeof(t.assigned_to), stdin);
-    clean_task_input(t.assigned_to);
+    clean_input(t.assigned_to);
 
     printf("Enter deadline (date): ");
     fgets(t.deadline, sizeof(t.deadline), stdin);
-    clean_task_input(t.deadline);
+    clean_input(t.deadline);
 
     strcpy(t.status, "Pending");
 

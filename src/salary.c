@@ -1,10 +1,7 @@
 #include "../include/salary.h"
 #include <stdio.h>
 #include <string.h>
-
-void clean_input(char *str) {
-    str[strcspn(str, "\n")] = 0;
-}
+#include "../include/utils.h"
 
 void calculate_salary() {
     FILE *f_att;

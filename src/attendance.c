@@ -1,10 +1,8 @@
 #include "../include/attendance.h"
 #include <stdio.h>
 #include <string.h>
+#include "../include/utils.h"
 
-void clean_input(char *str) {
-    str[strcspn(str, "\n")] = 0;
-}
 
 void mark_attendance() {
     FILE *fp;

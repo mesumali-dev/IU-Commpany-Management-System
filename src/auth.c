@@ -2,6 +2,7 @@
 #include "../include/dashboard.h"
 #include <stdio.h>
 #include <string.h>
+#include "../include/utils.h"
 
 typedef struct {
     int id;
@@ -11,9 +12,6 @@ typedef struct {
     char role[50];
 } User;
 
-void clean_input(char *str) {
-    str[strcspn(str, "\n")] = 0;
-}
 
 void register_user() {
     FILE *fp;

@@ -1,10 +1,8 @@
 #include "../include/transaction.h"
 #include <stdio.h>
 #include <string.h>
+#include "../include/utils.h"
 
-void clean_transaction_input(char *str) {
-    str[strcspn(str, "\n")] = 0;
-}
 
 void add_transaction() {
     FILE *fp;
@@ -31,7 +29,7 @@ void add_transaction() {
 
     printf("Enter date (dd-mm-yyyy): ");
     fgets(t.date, sizeof(t.date), stdin);
-    clean_transaction_input(t.date);
+    clean_input(t.date);
 
     printf("Enter amount: ");
     scanf("%f", &t.amount);
@@ -39,7 +37,7 @@ void add_transaction() {
 
     printf("Enter description: ");
     fgets(t.description, sizeof(t.description), stdin);
-    clean_transaction_input(t.description);
+    clean_input(t.description);
 
     fprintf(fp, "%d,%s,%.2f,%s\n", t.id, t.date, t.amount, t.description);
     printf("Transaction added successfully!\n");
@@ -61,7 +59,7 @@ void search_transaction() {
     
     printf("Enter date or description to search: ");
     fgets(keyword, sizeof(keyword), stdin);
-    clean_transaction_input(keyword);
+    clean_input(keyword);
 
     Transaction t;
     int found = 0;
