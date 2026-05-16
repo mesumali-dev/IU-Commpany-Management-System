@@ -13,14 +13,13 @@ void show_admin_dashboard() {
     while ((c = getchar()) != '\n' && c != EOF);
     do {
         printf("\n--- Admin Dashboard ---\n");
-        printf("1. Add Employee\n");
-        printf("2. Delete Employee\n");
-        printf("3. Assign Task\n");
-        printf("4. Search Employee\n");
-        printf("5. View Reports\n");
-        printf("6. View Attendance\n");
-        printf("7. View Tasks\n");
-        printf("8. Logout\n");
+        printf("1. Delete Employee\n");
+        printf("2. Assign Task\n");
+        printf("3. Search Employee\n");
+        printf("4. View Reports\n");
+        printf("5. View Attendance\n");
+        printf("6. View Tasks\n");
+        printf("7. Logout\n");
         printf("Enter choice: ");
         
         if (scanf("%d", &choice) != 1) {
@@ -32,33 +31,30 @@ void show_admin_dashboard() {
 
         switch (choice) {
             case 1: 
-                printf("Add Employee section coming soon!\n"); 
+                delete_employee(); 
                 break;
             case 2: 
-                printf("Delete Employee section coming soon!\n"); 
-                break;
-            case 3: 
                 assign_task(); 
                 break;
-            case 4: 
+            case 3: 
                 search_employee(); 
                 break;
-            case 5: 
+            case 4: 
                 printf("View Reports section coming soon!\n"); 
                 break;
-            case 6: 
+            case 5: 
                 view_attendance(); 
                 break;
-            case 7:
+            case 6:
                 view_assign_task();
                 break;
-            case 8: 
+            case 7: 
                 logout_user(); 
                 break;
             default: 
                 printf("Invalid Option!\n");
         }
-    } while (choice != 8);
+    } while (choice != 7);
 }
 
 void show_accountant_dashboard() {

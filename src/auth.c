@@ -161,3 +161,45 @@ void search_employee() {
 
     fclose(fp);
 }
+
+void delete_employee() {
+    FILE *fp, *ftemp;
+    fp = fopen("data/users.csv", "r");
+    if (fp == NULL) {
+        printf("No users found!\n");
+        return;
+    }
+
+    ftemp = fopen("data/temp_users.csv", "w");
+    if (ftemp == NULL) {
+        printf("Error creating temporary file!\n");
+        fclose(fp);
+        return;
+    }
+
+    int target_id;
+    printf("Enter user ID to delete: ");
+    scanf("%d", &target_id);
+
+    User u;
+    int found = 0;
+    while (fscanf(fp, "%d,%[^,],%[^,],%[^,],%[^\n]\n", &u.id, u.name, u.username, u.password, u.role) != EOF) {
+        if (u.id == target_id) {
+            found = 1;
+            continue; 
+        }
+        fprintf(ftemp, "%d,%s,%s,%s,%s\n", u.id, u.name, u.username, u.password, u.role);
+    }
+
+    fclose(fp);
+    fclose(ftemp);
+
+    remove("data/users.csv");
+    rename("data/temp_users.csv", "data/users.csv");
+
+    if (found) {
+        printf("User deleted successfully!\n");
+    } else {
+        printf("User ID not found!\n");
+    }
+}
