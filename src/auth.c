@@ -128,3 +128,36 @@ void login_user() {
 void logout_user() {
     printf("Logging out user...\n");
 }
+
+void search_employee() {
+    FILE *fp;
+    fp = fopen("data/users.csv", "r");
+    if (fp == NULL) {
+        printf("No users found!\n");
+        return;
+    }
+
+    char keyword[50];
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF); 
+
+    printf("Enter name or username to search: ");
+    fgets(keyword, sizeof(keyword), stdin);
+    clean_input(keyword);
+
+    User u;
+    int found = 0;
+    printf("\n--- Search Results ---\n");
+    while (fscanf(fp, "%d,%[^,],%[^,],%[^,],%[^\n]\n", &u.id, u.name, u.username, u.password, u.role) != EOF) {
+        if (strstr(u.name, keyword) != NULL || strstr(u.username, keyword) != NULL) {
+            printf("ID: %d | Name: %s | Username: %s | Role: %s\n", u.id, u.name, u.username, u.role);
+            found = 1;
+        }
+    }
+
+    if (!found) {
+        printf("No matching users found.\n");
+    }
+
+    fclose(fp);
+}

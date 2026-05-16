@@ -4,5 +4,6 @@
 void register_user();
 void login_user();
 void logout_user();
+void search_employee();
 
 #endif

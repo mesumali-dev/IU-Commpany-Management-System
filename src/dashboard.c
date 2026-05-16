@@ -5,6 +5,7 @@
 #include "../include/task.h"
 #include "../include/attendance.h"
 #include "../include/salary.h"
+#include "../include/transaction.h"
 
 void show_admin_dashboard() {
     int choice;
@@ -40,7 +41,7 @@ void show_admin_dashboard() {
                 assign_task(); 
                 break;
             case 4: 
-                printf("Search Employee section coming soon!\n"); 
+                search_employee(); 
                 break;
             case 5: 
                 printf("View Reports section coming soon!\n"); 
@@ -82,7 +83,7 @@ void show_accountant_dashboard() {
 
         switch (choice) {
             case 1: 
-                printf("Add Transactions coming soon!\n"); 
+                add_transaction(); 
                 break;
             case 2: 
                 calculate_salary(); 
@@ -91,7 +92,7 @@ void show_accountant_dashboard() {
                 view_salary_records(); 
                 break;
             case 4: 
-                printf("Search Transactions coming soon!\n"); 
+                search_transaction(); 
                 break;
             case 5: 
                 logout_user(); 
