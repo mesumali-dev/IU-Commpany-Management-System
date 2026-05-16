@@ -4,6 +4,7 @@
 #include "../include/auth.h"
 #include "../include/task.h"
 #include "../include/attendance.h"
+#include "../include/salary.h"
 
 void show_admin_dashboard() {
     int choice;
@@ -84,10 +85,10 @@ void show_accountant_dashboard() {
                 printf("Add Transactions coming soon!\n"); 
                 break;
             case 2: 
-                printf("Salary Calculation coming soon!\n"); 
+                calculate_salary(); 
                 break;
             case 3: 
-                printf("View Attendance coming soon!\n"); 
+                view_salary_records(); 
                 break;
             case 4: 
                 printf("Search Transactions coming soon!\n"); 
