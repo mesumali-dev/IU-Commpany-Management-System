@@ -11,7 +11,6 @@
 void show_admin_dashboard() {
     int choice;
     int c;
-    while ((c = getchar()) != '\n' && c != EOF);
     do {
         printf("\n--- Admin Dashboard ---\n");
         printf("1. Delete Employee\n");
@@ -61,7 +60,6 @@ void show_admin_dashboard() {
 void show_accountant_dashboard() {
     int choice;
     int c;
-    while ((c = getchar()) != '\n' && c != EOF);    
     do {
         printf("\n--- Accountant Dashboard ---\n");
         printf("1. Add Transactions\n");
